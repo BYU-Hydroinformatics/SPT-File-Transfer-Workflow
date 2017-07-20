@@ -48,6 +48,7 @@ do
         echo "Skipping available date older than two weeks" >> $LOG
 #        echo "Deleting dates older than two weeks" >> $LOG
 #        rm -r $HOME/rapid-io/output/$watershed/$rawdate
+        rm $WORKFLOW_DIR/logs/workflow_$rawdate*
       fi
     done < <(ls -d $HOME/rapid-io/output/$watershed/*/ | xargs -n 1 basename)
   else
