@@ -13,13 +13,13 @@ WORKFLOW_DIR=$HOME/tethys/spt_files/ecmwf
 
 # create date variables
 TODAY=$(date +"%Y%m%d")
-DATE_LIMIT=$(date -d "$TODAY - 5 days" +"%Y%m%d")
+DATE_LIMIT=$(date -d "$TODAY - 7 days" +"%Y%m%d")
 
 # delete old forecasts
 while read watershed
 do
   # check that there are outputs in the watershed folders
-  if [[ `find $HOME/rapid-io/output/$watershed/ -mindepth 1 -type d | wc -l` > 0 ]]
+  if [[ `find $WORKFLOW_DIR/$watershed/ -mindepth 1 -type d | wc -l` > 0 ]]
   then
     while read rawdate
     do
