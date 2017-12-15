@@ -24,7 +24,7 @@ do
     while read rawdate
     do
       # delete forecasts older than date limit
-      if [[ "${rawdate:0:8}" < "$DATE_LIMIT" ]]
+      if [[ "$watershed" != *"historical"* && "${rawdate:0:8}" < "$DATE_LIMIT" ]]
       then
         rm -r $WORKFLOW_DIR/$watershed/$rawdate
       fi
